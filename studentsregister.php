@@ -8,6 +8,7 @@ if (isset($_REQUEST["submit"])){
     $gender=$_REQUEST["gender"];
     $class=$_REQUEST["class"];
     $field=$_REQUEST["field"];
+    $numberofsubjects=$_REQUEST["numberofsubjects"];
     $subject=$_REQUEST["subject"];
     $b=implode(",",$subject);
     $city=$_REQUEST["city"];
@@ -17,9 +18,37 @@ if (isset($_REQUEST["submit"])){
     $address=$_REQUEST["address"];
     $dob=$_REQUEST["dob"];
     $regdate=$_REQUEST["regdate"];
-    mysqli_query($connection,"insert into studentregister (studentname,fathername,gender,class,field,subject,city,rollnum,mobilenum,fathermobile,address,dob,regdate) values ('$studentname','$fathername','$gender','$class','$field','$b','$city','$rollnum','$mobilenum','$fathermobile','$address','$dob','$regdate')");
+    
+    // $ins="insert into feesubmit (studentname,fathername,class,field,rollnum,numberofsubjects,subjects) values ('$studentname','$fathername','$class','$field','$rollnum','$numberofsubjects','$b')";
+    // $que=mysqli_query($connection,$ins);
+    
+    $insert="insert into studentregister (studentname,fathername,gender,class,field,numberofsubjects,subject,city,rollnum,mobilenum,fathermobile,address,dob,regdate) values ('$studentname','$fathername','$gender','$class','$field','$numberofsubjects','$b','$city','$rollnum','$mobilenum','$fathermobile','$address','$dob','$regdate')";
      
-  }
+    $query=mysqli_query($connection,$insert);
+}
+
+if (isset($_REQUEST["submit"])){
+
+  $studentname=$_REQUEST["studentname"];
+  $fathername=$_REQUEST["fathername"];
+  $gender=$_REQUEST["gender"];
+  $class=$_REQUEST["class"];
+  $field=$_REQUEST["field"];
+  $numberofsubjects=$_REQUEST["numberofsubjects"];
+  $subject=$_REQUEST["subject"];
+  $b=implode(",",$subject);
+  $city=$_REQUEST["city"];
+  $rollnum=$_REQUEST["rollnum"];
+  $mobilenum=$_REQUEST["mobilenum"];
+  $fathermobile=$_REQUEST["fathermobile"];
+  $address=$_REQUEST["address"];
+  $dob=$_REQUEST["dob"];
+  $regdate=$_REQUEST["regdate"];
+  
+  $ins="INSERT into feesubmit (studentname,fathername,class,field,rollnum,numberofsubjects,subjects) VALUES ('$studentname','$fathername','$class','$field','$rollnum','$numberofsubjects','$b')";
+  $que=mysqli_query($connection,$ins);
+}
+
 ?>
 
 
@@ -43,6 +72,8 @@ if (isset($_REQUEST["submit"])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>PHP login system!</title>
+    
+
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -97,13 +128,18 @@ if (isset($_REQUEST["submit"])){
                         <label for="inputDob">Date of Birth*</label>
                         <input type="date" class="form-control" name ="dob" id="inputdob" placeholder="dd/mm/yyyy" required>
                 </div>
+                
+                <div class="form-group col-md-6">
+                        <label for="nos">Number of Subjects:</label>
+                        <input type="number" class="form-control" name ="numberofsubjects" id="numberofsubjects" placeholder="1,2,3 etc" required>
+                </div>
                 <div class="form-group col-md-6">
                     Select Class:
                     <select name="class" id="mySelect" onchange='show()'>
                         <option value="9">9th</option>
-                        <option value="Matric(10)">Matric</option>
-                        <option value="FirstYear(11)">1st Year</option>
-                        <option value="Second Year(12)">2nd Year</option>
+                        <option value="10">Matric</option>
+                        <option value="11">1st Year</option>
+                        <option value="12">2nd Year</option>
                     </select>
 
                     Select Category:
@@ -119,13 +155,19 @@ if (isset($_REQUEST["submit"])){
                     <div style="border:solid rgb(218, 213, 213) 1px"><br>
                         <div id="cs_9">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="Computer"> Computer
-                            <input type="checkbox" name="subject[]" value="chemistry"> Chemistry
+                            <input type="checkbox" name="subject[]" value="COMP9"> Computer
+                            <input type="checkbox" name="subject[]" value="CHEM9"> Chemistry
+                            <input type="checkbox" name="subject[]" value="SINDHI9"> Sindhi
+                            <input type="checkbox" name="subject[]" value="ENG9"> English
+                            <input type="checkbox" name="subject[]" value="PST9"> Pakistan St.
                         </div>
                         <div id="medical_9">
                             <label for="subject">Select subject:</label>
-                            <input type="checkbox" name="subject[]" value="chemistry"> Chemistry
-                            <input type="checkbox" name="subject[]" value="Bio"> Bio
+                            <input type="checkbox" name="subject[]" value="CHEM9"> Chemistry
+                            <input type="checkbox" name="subject[]" value="BIO9"> Bio
+                            <input type="checkbox" name="subject[]" value="SINDHI9"> Sindhi
+                            <input type="checkbox" name="subject[]" value="ENG9"> English
+                            <input type="checkbox" name="subject[]" value="PST9"> Pakistan St.
                         </div>
                         <!-- <div id="commerce_9">
                             <label for="subject">Select subject:</label> 
@@ -134,8 +176,11 @@ if (isset($_REQUEST["submit"])){
                         </div> -->
                         <div id="matric">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="Math"> Mathmetics
-                            <input type="checkbox" name="subject[]" value="physics">Physics
+                            <input type="checkbox" name="subject[]" value="MATH10"> Mathmetics
+                            <input type="checkbox" name="subject[]" value="PHY10">Physics
+                            <input type="checkbox" name="subject[]" value="ISL10"> Islamiat
+                            <input type="checkbox" name="subject[]" value="ENG10"> English
+                            <input type="checkbox" name="subject[]" value="URDU10"> Urdu
                         </div>
                         <!-- <div id="commerce_10">
                             <label for="subject">Select subject:</label> 
@@ -145,46 +190,61 @@ if (isset($_REQUEST["submit"])){
                         </div> -->
                         <div id="preeng_11">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="chemistry"> Chemistry- XI
-                            <input type="checkbox" name="subject[]" value="physics">   Physics - XI
-                            <input type="checkbox" name="subject[]" value="Mathmetics"> Math -XI
+                            <input type="checkbox" name="subject[]" value="CHEM11"> Chemistry- XI
+                            <input type="checkbox" name="subject[]" value="PHY11">   Physics - XI
+                            <input type="checkbox" name="subject[]" value="MATH11"> Math -XI
+                            <input type="checkbox" name="subject[]" value="ISL11"> Islamiat
+                            <input type="checkbox" name="subject[]" value="ENG11"> English
+                            <input type="checkbox" name="subject[]" value="URDU11"> Urdu
                         </div>
                         <div id="premedical_11">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="chemistry"> Chemistry- XI
-                            <input type="checkbox" name="subject[]" value="physics"> Physics - XI
-                            <input type="checkbox" name="subject[]" value="Biology"> Biology - XI
+                            <input type="checkbox" name="subject[]" value="CHEM11"> Chemistry- XI
+                            <input type="checkbox" name="subject[]" value="PHY11"> Physics - XI
+                            <input type="checkbox" name="subject[]" value="BIO11"> Biology - XI
+                            <input type="checkbox" name="subject[]" value="ISL11"> Islamiat
+                            <input type="checkbox" name="subject[]" value="ENG11"> English
+                            <input type="checkbox" name="subject[]" value="URDU11"> Urdu
                         </div>
                         <div id="commerce_11">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="POC"> Principle of Commerce -XI
-                            <input type="checkbox" name="subject[]" value="POE"> Principle of Economics-XI
-                            <input type="checkbox" name="subject[]" value="Business Mathmetics"> Business Math-XII
-                            <input type="checkbox" name="subject[]" value="POA"> Principle of Accounting -XI
+                            <input type="checkbox" name="subject[]" value="POC11"> Principle of Commerce -XI
+                            <input type="checkbox" name="subject[]" value="POE11"> Principle of Economics-XI
+                            <input type="checkbox" name="subject[]" value="BUSMATH11"> Business Math-XII
+                            <input type="checkbox" name="subject[]" value="POA11"> Principle of Accounting -XI
+                            <input type="checkbox" name="subject[]" value="ISL11"> Islamiat
+                            <input type="checkbox" name="subject[]" value="ENG11"> English
+                            <input type="checkbox" name="subject[]" value="URDU11"> Urdu
                           </div>
                         <div id="preeng_12">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="chemistry"> Chemistry -XII
-                            <input type="checkbox" name="subject[]" value="physics"> Physics-XII
-                            <input type="checkbox" name="subject[]" value="Mathmetics"> Mathematics - XII
+                            <input type="checkbox" name="subject[]" value="CHEM12"> Chemistry -XII
+                            <input type="checkbox" name="subject[]" value="PHY12"> Physics-XII
+                            <input type="checkbox" name="subject[]" value="MATH12"> Mathematics - XII
+                            <input type="checkbox" name="subject[]" value="PST12"> Pakistan St.
+                            <input type="checkbox" name="subject[]" value="ENG12"> English
+                            <input type="checkbox" name="subject[]" value="URDU12"> Urdu
                         </div>
                         <div id="premedical_12">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="chemistry"> Chemistry-XII
-                            <input type="checkbox" name="subject[]" value="physics"> Physics-XII
-                            <input type="checkbox" name="subject[]" value="Mathmetics"> Biology - XII
+                            <input type="checkbox" name="subject[]" value="CHEM12"> Chemistry-XII
+                            <input type="checkbox" name="subject[]" value="PHY12"> Physics-XII
+                            <input type="checkbox" name="subject[]" value="BIO12"> Biology - XII
+                            <input type="checkbox" name="subject[]" value="PST12"> Pakistan St.
+                            <input type="checkbox" name="subject[]" value="ENG12"> English
+                            <input type="checkbox" name="subject[]" value="URDU12"> Urdu
                         </div>
                         <div id="commerce_12">
                             <label for="subject">Select subject:</label> 
-                            <input type="checkbox" name="subject[]" value="POA"> Principle of Accounting -XII
-                            <input type="checkbox" name="subject[]" value="POC"> Principle of Commerce -XII
-                            <input type="checkbox" name="subject[]" value="POE"> Principle of Economics-XII
-                            <input type="checkbox" name="subject[]" value="Business Mathmetics"> Business Math-XII
-                            <input type="checkbox" name="subject[]" value="Urdu"> Urdu
-                            <input type="checkbox" name="subject[]" value="English"> English
-                            <input type="checkbox" name="subject[]" value="Islamiat"> Islamiat
-                            <input type="checkbox" name="subject[]" value="Pak St."> Pakistan Studies
-                            <input type="checkbox" name="subject[]" value="CommercialGeograpgy"> Commercial Geography
+                            <input type="checkbox" name="subject[]" value="POA12"> Principle of Accounting -XII
+                            <input type="checkbox" name="subject[]" value="POC12"> Principle of Commerce -XII
+                            <input type="checkbox" name="subject[]" value="POE12"> Principle of Economics-XII
+                            <input type="checkbox" name="subject[]" value="BUSMATH12"> Business Math-XII
+                            <input type="checkbox" name="subject[]" value="URDU12"> Urdu
+                            <input type="checkbox" name="subject[]" value="ENG12"> English
+                            <input type="checkbox" name="subject[]" value="ISL12"> Islamiat
+                            <input type="checkbox" name="subject[]" value="PST12"> Pakistan Studies
+                            <input type="checkbox" name="subject[]" value="COMGEO12"> Commercial Geography
                         </div>
                     </div>
 
@@ -417,4 +477,5 @@ function show() {
 
 
     </body>
+
 </html>
