@@ -1,7 +1,6 @@
 <?php
 //This script will handle login
 session_start();
-
 // check if the user is already logged in
 if(isset($_SESSION['username']))
 {
@@ -9,10 +8,8 @@ if(isset($_SESSION['username']))
     exit;
 }
 require_once "config.php";
-
 $username = $password = "";
 $err = "";
-
 // if request method is post
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     if(empty(trim($_POST['username'])) || empty(trim($_POST['password'])))
@@ -23,8 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
     }
-
-
 if(empty($err))
 {
     $sql = "SELECT id, username, password FROM users WHERE username = ?";
@@ -48,22 +43,15 @@ if(empty($err))
                             $_SESSION["username"] = $username;
                             $_SESSION["id"] = $id;
                             $_SESSION["loggedin"] = true;
-
                             //Redirect user to welcome page
                             header("location: welcome.php");
                             
                         }
                     }
-
                 }
-
     }
 }    
-
-
 }
-
-
 ?>
 
 <!doctype html>
