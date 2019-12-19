@@ -20,7 +20,27 @@ $result=mysqli_query($connection ,$query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Check Fee</title>
-</head>
+
+    
+    <style>
+    body{
+          background-color: whitesmoke;
+
+    }
+
+    input{
+
+        width: 40%;
+        height: 5%;
+        border: 1px;
+        border-radius:5px;
+        padding: 8px 15px 8px 15px;
+        margin: 10px 0px 15px 0px;
+        box-shadow: 1px 1px 2px 1px grey;
+
+    }
+</style>
+  </head>
 <body>
     
 <head>
@@ -77,9 +97,9 @@ $result=mysqli_query($connection ,$query);
     
     ?>
     <tr><td><?php echo $rows['id'];?></td>
-    <td><?php echo $rows['comp9th'];?></td>
-    <td><?php echo $rows['bio9th'];?></td>
-     <td><?php echo $rows['chem9th'];?></td></tr>
+    <td><?php echo $rows['COMP9'];?></td>
+    <td><?php echo $rows['BIO9'];?></td>
+     <td><?php echo $rows['CHEM9'];?></td></tr>
 <?php
     }?> 
     </table>    
