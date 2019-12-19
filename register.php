@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     }
     else{
         $sql = "SELECT id FROM users WHERE username = ?";
-        $stmt = mysqli_prepare($conn, $sql);
+        $stmt = mysqli_prepare($connection, $sql);
         if($stmt)
         {
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -62,7 +62,7 @@ if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
 {
     $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
+    $stmt = mysqli_prepare($connection, $sql);
     if ($stmt)
     {
         mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
@@ -82,7 +82,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
     }
     mysqli_stmt_close($stmt);
 }
-mysqli_close($conn);
+mysqli_close($connection);
 }
 
 ?>
