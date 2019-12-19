@@ -18,13 +18,12 @@ body{
 body {
   padding: 0;
   margin: 0;
-  background-image: url("bg-01.jpg");
+  background-image: url("bg-011.jpg");
     background-size: cover;
     background-position: center;
     height: 100%;
     background-repeat: no-repeat;
 }
-
 *,
 *:before,
 *:after {
@@ -32,17 +31,13 @@ body {
   padding: 0;
   margin: 0;
 }
-
-
 /* _-_-_-_-__ morphing navigation styling __-_-_-_-_ */
-
 .header {
   width: 100vw;
   height: 100vh;   
   background-size: cover;
   position: relative;
 }
-
 .navigation {
   width: 100px;
   height: 100%;
@@ -56,7 +51,6 @@ body {
   perspective: 800;   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .logo {
   width: 70px;
   height: 70px;
@@ -69,7 +63,6 @@ body {
   transform: rotateY(-360deg);   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation__icon {
   width: 55px;
   height: 44px;
@@ -81,7 +74,6 @@ body {
   cursor: pointer;  
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation__icon .topBar {
   width: 55px;
   height: 2px;
@@ -92,7 +84,6 @@ body {
   transform: rotate(0);   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation__icon .middleBar {
   width: 55px;
   height: 2px;
@@ -103,7 +94,6 @@ body {
   transform: rotate(0);
    transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation__icon .bottomBar {
   width: 35px;
   height: 2px;
@@ -114,7 +104,6 @@ body {
   transform: rotate(0);   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation .navigation__ul {
   float: right;
   margin-top: 220px;
@@ -123,12 +112,10 @@ body {
   transform: rotateY(-90deg) translateX(-300px);   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation .navigation__ul li {
   list-style: none;
   text-align: right;
 }
-
 .navigation .navigation__ul a {
   display: block;
   font-size: 30px;
@@ -138,11 +125,9 @@ body {
   color: black;
   margin-bottom: 15px;
 }
-
 .navigation .navigation__ul a:hover {
   color: hsl(185, 96%, 33%);
 }
-
 .navigation .navigation__social {
   width: 100%;
   height: 30px;
@@ -150,7 +135,6 @@ body {
   position: absolute;
   bottom: 18%;
 }
-
 .navigation .navigation__social-ul {
   float: right;
   list-style: none;
@@ -160,7 +144,6 @@ body {
   transform: rotateY(-90deg) translateX(-300px);   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation .navigation__social-ul li {
   display: inline-block;
   opacity: 0;
@@ -168,14 +151,12 @@ body {
   transform: translateY(35px);   
   transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
-
 .navigation .social-icon {
   width: 30px;
   height: 30px;
   display: block;   
   margin-left: 15px;
 }
-
  
 .navigation-open {
   width: 350px;
@@ -186,31 +167,25 @@ body {
   left: 0;
   border-radius: 0% 1% 1% 0%;
 }
-
 .navigation-open .logo {
   left: 68%;   
   transform: rotateY(0);
 }
-
 .navigation-open .navigation__icon {
   left: 80%;
 }
-
 .navigation-open .navigation__ul {
   opacity: 1;
   visibility: visible;
 }
-
 .navigation-open .navigation__social-ul {
   opacity: 1;
   visibility: visible;
 }
-
 .navigation-open .topBar {
   top: 21px;   
   transform: rotate(45deg);
 }
-
 .navigation-open .middleBar {
   width: 0;
   top: 22px;
@@ -218,39 +193,31 @@ body {
   visibility: hidden; 
   transform: translateX(30px);
 }
-
 .navigation-open .bottomBar {
   width: 55px;
   top: 21px;   
   transform: rotate(-45deg);
 }
-
 .navigation-open .navigation__ul {   
   transform: rotateY(0) translateX(0);
 }
-
 .navigation-open .navigation__social-ul {   
   transform: rotateY(0) translateX(0);
 }
-
 .navigation-open .navigation__social-ul li {
   opacity: 1;
   visibility: visible;   
   transform: translateY(0px);
 }
-
 .navigation-open .navigation__social-ul li:nth-child(1) {   
   transition-delay: .5s;
 }
-
 .navigation-open .navigation__social-ul li:nth-child(2) {   
   transition-delay: .46s;
 }
-
 .navigation-open .navigation__social-ul li:nth-child(3) {   
   transition-delay: .43s;
 }
-
 .navigation-open .navigation__social-ul li:nth-child(4) {   
   transition-delay: .4s;
 }
