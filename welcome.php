@@ -4,7 +4,7 @@ session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
 {
-    header("location: login.php");
+    // header("location: login.php");
 }
 
 
@@ -50,7 +50,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
   <div class="navbar-collapse collapse">
   <ul class="navbar-nav ml-auto">
   <li class="nav-item active">
-        <a class="nav-link" href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png"> <?php echo "Welcome ". $_SESSION['username']?></a>
+   <!-- <a class="nav-link" href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png"> <?php echo "Welcome ". $_SESSION['username']?></a> -->
       </li>
   </ul>
   </div>
@@ -78,16 +78,25 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
   <div class="card-body">
     <h5 class="card-title">Search Student</h5>
     <p class="card-text">Click the Button below To search any Student.</p>
-    <a href="#" class="btn btn-primary">Search</a>
+    <a href="feesubmission.php" class="btn btn-primary">Search</a>
   </div>
 </div>
 
-<div id =block3 class="Fee Submission" style="width: 18rem;">
+<div id =block3 class="Search Student" style="width: 18rem;">
+  <img src="https://img.icons8.com/carbon-copy/100/000000/search.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Insert Fee</h5>
+    <p class="card-text">For inserting the fee Click the Insert biton below. </p>
+    <a href="insertfee.php" class="btn btn-primary">Insert</a>
+  </div>
+</div>
+
+<div id =block4 class="Fee Submission" style="width: 18rem;">
   <img src="https://img.icons8.com/ios-filled/50/000000/canadian-dollar.png" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Fee Submission</h5>
     <p class="card-text">Click the Button below to Submit the fee.</p>
-    <a href="#" class="btn btn-primary">Fee Submit</a>
+    <a href="feesubmission.php" class="btn btn-primary">Fee Submit</a>
   </div>
 </div>
 
