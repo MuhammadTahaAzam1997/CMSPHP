@@ -3,15 +3,15 @@
 require_once "config.php";
 if (isset($_REQUEST["submit"])){
 
-    $comp9th=$_REQUEST["comp9th"];
-    $bio9th=$_REQUEST["bio9th"];
-    $chem9th=$_REQUEST["chem9th"];
+    $COMP9=$_REQUEST["COMP9"];
+    $BIO9=$_REQUEST["BIO9"];
+    $CHEM9=$_REQUEST["CHEM9"];
     // $eng9th=$_REQUEST["eng9th"];
     // $pst9th=$_REQUEST["pst9th"];
     // $sindhi9th=$_REQUEST["sindhi9th"];
-    // $phy10th=$_REQUEST["phy10th"];
-    // $math10th=$_REQUEST["math10th"];
-    // $eng10th=$_REQUEST["eng10th"];
+    $PHY10=$_REQUEST["PHY10"];
+    $MATH10=$_REQUEST["MATH10"];
+    $ENG10=$_REQUEST["ENG10"];
     // $urdu10th=$_REQUEST["urdu10th"];
     // $isl10th=$_REQUEST["isl10th"];
     
@@ -19,7 +19,7 @@ if (isset($_REQUEST["submit"])){
     
     
     
-    mysqli_query($connection,"insert into feeregister (comp9th,bio9th,chem9th) values ('$comp9th','$bio9th','$chem9th')");
+    mysqli_query($connection,"insert into feeregister (COMP9,BIO9,CHEM9) values ('$COMP9','$BIO9','$CHEM9')");
      
   }
 ?>
@@ -49,6 +49,26 @@ if (isset($_REQUEST["submit"])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Fee Insertion</title>
+    
+    <style>
+    body{
+          background-color: whitesmoke;
+
+    }
+
+    input{
+
+        width: 40%;
+        height: 5%;
+        border: 1px;
+        border-radius:5px;
+        padding: 8px 15px 8px 15px;
+        margin: 10px 0px 15px 0px;
+        box-shadow: 1px 1px 2px 1px grey;
+
+    }
+</style>
+
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -90,18 +110,18 @@ if (isset($_REQUEST["submit"])){
   
 <div id="9thComputerScience" >
 <label for="inputcomp">9th computer</label>
-<input type="number" name="comp9th"   id="inputcomp" placeholder="Enter fee" >
+<input type="number" name="COMP9"   id="inputcomp" placeholder="Enter fee" >
 <label for="inputbio">9th biology</label>
-<input type="number" name="bio9th"    id="inputbio" placeholder="Enter fee" >
+<input type="number" name="BIO9"    id="inputbio" placeholder="Enter fee" >
 <label for="inputchem">9th chemistry</label>
-<input type="number" name="chem9th"    id="inputchem" placeholder="Enter fee" >
+<input type="number" name="CHEM9"    id="inputchem" placeholder="Enter fee" >
 <br>
 <label for="inputeng">9th English</label>
-<input type="number" name="eng9th"   id="inputeng" placeholder="Enter fee" >
+<input type="number" name="ENG9"   id="inputeng" placeholder="Enter fee" >
 <label for="inputpst">9th PAK.STUDIES</label>
-<input type="number" name="pst9th"    id="inputpst" placeholder="Enter fee" >
+<input type="number" name="PST9"    id="inputpst" placeholder="Enter fee" >
 <label for="inputsindhi">9th Sindhi</label>
-<input type="number" name="sindhi9th"    id="inputsindhi" placeholder="Enter fee" >
+<input type="number" name="SINDHI9"    id="inputsindhi" placeholder="Enter fee" >
 </div>
 
 <br><br>
