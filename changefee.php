@@ -5,11 +5,11 @@ require_once "config.php";
 
 if(isset($_POST['submit'])){
     
-    $comp9th=$_POST["comp9th"];
-    $bio9th=$_POST["bio9th"];
-    $chem9th=$_POST["chem9th"];
+    $COMP9=$_POST["COMP9"];
+    $BIO9=$_POST["BIO9"];
+    $CHEM9=$_POST["CHEM9"];
 
-    $query = "UPDATE `feeregister` SET `comp9th`='".$comp9th."',`bio9th`='".$bio9th."',`chem9th`= $chem9th WHERE `id` = 1";
+    $query = "UPDATE `feeregister` SET `COMP9`='".$COMP9."',`BIO9`='".$BIO9."',`CHEM9`= $CHEM9 WHERE `id` = 1";
    
     $result = mysqli_query($connection, $query);
     
@@ -36,6 +36,25 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Change Fee</title>
+    
+    <style>
+    body{
+          background-color: whitesmoke;
+
+    }
+
+    input{
+
+        width: 40%;
+        height: 5%;
+        border: 1px;
+        border-radius:5px;
+        padding: 8px 15px 8px 15px;
+        margin: 10px 0px 15px 0px;
+        box-shadow: 1px 1px 2px 1px grey;
+
+    }
+</style>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -74,18 +93,18 @@ if(isset($_POST['submit'])){
   
 <div id="9thComputerScience" >
 <label for="inputcomp">9th computer</label>
-<input type="number" name="comp9th"   id="inputcomp" placeholder="Enter fee" >
+<input type="number" name="COMP9"   id="inputcomp" placeholder="Enter fee" >
 <label for="inputbio">9th biology</label>
-<input type="number" name="bio9th"    id="inputbio" placeholder="Enter fee" >
+<input type="number" name="BIO9"    id="inputbio" placeholder="Enter fee" >
 <label for="inputchem">9th chemistry</label>
-<input type="number" name="chem9th"    id="inputchem" placeholder="Enter fee" >
+<input type="number" name="CHEM9"    id="inputchem" placeholder="Enter fee" >
 <br>
 <label for="inputeng">9th English</label>
-<input type="number" name="eng9th"   id="inputeng" placeholder="Enter fee" >
+<input type="number" name="ENG9"   id="inputeng" placeholder="Enter fee" >
 <label for="inputpst">9th PAK.STUDIES</label>
-<input type="number" name="pst9th"    id="inputpst" placeholder="Enter fee" >
+<input type="number" name="PST9"    id="inputpst" placeholder="Enter fee" >
 <label for="inputsindhi">9th Sindhi</label>
-<input type="number" name="sindhi9th"    id="inputsindhi" placeholder="Enter fee" >
+<input type="number" name="SINDHI9"    id="inputsindhi" placeholder="Enter fee" >
 </div>
 
 <br><br>
